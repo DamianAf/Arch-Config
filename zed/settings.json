@@ -1,0 +1,55 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "hover_popover_enabled": true,
+  "disable_ai": false,
+  "colorize_brackets": true,
+  "completions": {
+    "words": "fallback"
+  },
+  "show_completion_documentation": true,
+  "inlay_hints": {
+    "show_background": false,
+    "enabled": true
+  },
+  "show_edit_predictions": false,
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "show_signature_help_after_edits": false,
+  "auto_signature_help": false,
+  "format_on_save": "off",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  },
+  "snippet_sort_order": "inline",
+  "lsp": {
+    "clangd": {
+      "binary": {
+        "path": "/usr/bin/clangd",
+        "arguments": ["--function-arg-placeholders=0"]
+      }
+    }
+  }
+}
