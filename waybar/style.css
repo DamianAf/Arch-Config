@@ -7,6 +7,7 @@
 
 window#waybar {
     background: rgba(26, 27, 38, 0.75);
+    background: transparent;
     color: #c0caf5;
     font-family:
         SpaceMono Nerd Font,
@@ -14,10 +15,11 @@ window#waybar {
     transition: background-color .5s;
 }
 
-.modules-left,
+
 .modules-center
-/* uncomment if you want to add modules to the right*/
-/*, .modules-right*/
+/* uncomment if you want to add modules to the right or left*/
+/*, .modules-right,*/
+/* .modules-left */
 {
     background: rgba(0, 0, 8, .7);
     margin: 5px 10px;
@@ -49,7 +51,7 @@ window#waybar {
 #power-profiles-daemon,
 #language,
 #mpd {
-    padding: 0 10px;
+    padding: 0 5px;
     border-radius: 15px;
 }
 
@@ -71,7 +73,7 @@ window#waybar {
 #power-profiles-daemon:hover,
 #language:hover,
 #mpd:hover {
-    background: rgba(26, 27, 38, 0.9);
+    background: rgba(30, 30, 40, 0.9);
 }
 
 
