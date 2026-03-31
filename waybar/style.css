@@ -86,7 +86,9 @@ window#waybar {
   font-size: 13pt;
   color: #c0caf5;
   border:none;
-  border-radius: 15px;
+  border-radius: 100%;
+  margin: 0px;
+  padding: 0px 8px 0px 8px;
 }
 
 #workspaces button.active {

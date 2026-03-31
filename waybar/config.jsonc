@@ -11,7 +11,7 @@
         "clock",
         "network",
         "custom/arch",
-        "hyprland/workspaces",
+        "niri/workspaces",
         "tray",
         "pulseaudio",
         "temperature",

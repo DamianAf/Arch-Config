@@ -1,37 +1,22 @@
-// This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
-// Check the wiki for a full description of the configuration:
-// https://yalter.github.io/niri/Configuration:-Introduction
 
-// Input device configuration.
-// Find the full list of options on the wiki:
-// https://yalter.github.io/niri/Configuration:-Input
-
+// removes window decorations
 prefer-no-csd
 
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            // For example:
             layout "us,pt"
             options "grp:toggle"
-
-            // If this section is empty, niri will fetch xkb settings
-            // from org.freedesktop.locale1. You can control these using
-            // localectl set-x11-keymap.
         }
+        
         repeat-delay 200
         repeat-rate 50
         // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
 
-    // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
-    // All commented-out settings here are examples, not defaults.
     touchpad {
         // off
         tap
@@ -40,10 +25,10 @@ input {
         // drag false
         // drag-lock
         natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-speed 0.2
+        accel-profile "adaptive"
         // scroll-method "two-finger"
-        // disabled-on-external-mouse
+        disabled-on-external-mouse
     }
 
     mouse {
@@ -75,21 +60,11 @@ input {
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
 output "eDP-1" {
-    // Uncomment this line to disable this output.
     // off
-    variable-refresh-rate
+    variable-refresh-rate on-demand=true
     // Resolution and, optionally, refresh rate of the output.
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-    // If the refresh rate is omitted, niri will pick the highest refresh rate
-    // for the resolution.
-    // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1
@@ -107,15 +82,12 @@ output "eDP-1" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=0
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 1
+    gaps 4
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -125,7 +97,7 @@ layout {
     //   together with the previously focused column.
     center-focused-column "never"
 
-    // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+    // You can customize the widths that "switch-preset-column-width" (Mod+D) toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
         // For example, you can perfectly fit four windows sized "proportion 0.25" on an output.
@@ -137,7 +109,7 @@ layout {
         // fixed 1920
     }
 
-    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
+    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+D) toggles between.
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
@@ -147,18 +119,12 @@ layout {
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
-    // This is because windows using client-side decorations can have an arbitrary shape.
-    //
-    // If you don't like that, you should uncomment `prefer-no-csd` below.
+
+    // If you don't like that, you should use `prefer-no-csd`.
     // Niri will draw focus ring and border *around* windows that agree to omit their
     // client-side decorations.
     
-    // Alternatively, you can override it with a window rule called
-    // `draw-border-with-background`.
-
-    // You can change how the focus ring looks.
     focus-ring {
-        // Uncomment this line to disable the focus ring.
         off
 
         // How many logical pixels the ring extends out from the windows.
@@ -173,15 +139,12 @@ layout {
         active-color "#7fc8ff"
 
         // Color of the ring on inactive monitors.
-        //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
         inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
-        // The angle is the same as in linear-gradient, and is optional,
-        // defaulting to 180 (top-to-bottom gradient).
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
@@ -268,14 +231,12 @@ layout {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// See the binds section below for more spawn examples.
 
-// This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
 spawn-at-startup "dunst"
 spawn-at-startup "changeHz"
 spawn-at-startup "awww-daemon"
-spawn-at-startup "awww" "img" "~/.config/niri/wallpaper/arch_wallpaper.jpg"
+spawn-at-startup "awww" "&&" "img" "~/.config/niri/wallpaper/arch_wallpaper.jpg"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -285,13 +246,6 @@ hotkey-overlay {
     skip-at-startup
 }
 
-// Uncomment this line to ask the clients to omit their client-side decorations if possible.
-// If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-// This option will also fix border/focus ring drawing behind some semitransparent windows.
-// After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
-
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
@@ -300,9 +254,6 @@ screenshot-path "~/Media/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
 
-// Animation settings.
-// The wiki explains how to configure individual animations:
-// https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
     // off
@@ -312,25 +263,15 @@ animations {
 }
 
 // Window rules let you adjust behavior for individual windows.
-// Find more information on the wiki:
-// https://yalter.github.io/niri/Configuration:-Window-Rules
 
-// Work around WezTerm's initial configure bug
-// by setting an empty default-column-width.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
+// Open the Zen picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -347,7 +288,6 @@ window-rule {
 }
 
 // Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
@@ -356,7 +296,6 @@ window-rule {
 }
 
 binds {
-    // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
     // like wev.
     //
@@ -371,15 +310,12 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Open a Terminal: kitty" { spawn "foot"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-
-    // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
-    // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
-    // For example, this is a standard bind to toggle the screen reader (orca).
-    Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
-
+    Super+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn "zen-browser"; }
+    Super+A hotkey-overlay-title="Open a file explorer: thunar" { spawn "thunar"; }
+    
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
     // Using spawn-sh allows to pass multiple arguments together with the command.
@@ -402,6 +338,11 @@ binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
+
+    // this is for asus keyboard backlight, for other devices it may be different
+    Mod+F2 allow-when-locked=true { spawn-sh "brightnessctl --device='asus::kbd_backlight' set 1-"; }
+    Mod+F3 allow-when-locked=true { spawn-sh "brightnessctl --device='asus::kbd_backlight' set 1+"; }
+
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
@@ -410,29 +351,22 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
     Mod+L     { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Up    { move-window-up-or-to-workspace-up; }
     Mod+Ctrl+Right { move-column-right; }
     Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down; }
-    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
     Mod+Ctrl+L     { move-column-right; }
-
-    // Alternative commands that move across workspaces when reaching
-    // the first or last window in a column.
-    // Mod+J     { focus-window-or-workspace-down; }
-    // Mod+K     { focus-window-or-workspace-up; }
-    // Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    // Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -626,7 +560,6 @@ binds {
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 
-    // Powers off the monitors. To turn them back on, do any input like
-    // moving the mouse or pressing any other key.
+    // Powers off the monitors.
     Mod+Shift+P { power-off-monitors; }
 }

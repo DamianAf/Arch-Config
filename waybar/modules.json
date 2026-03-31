@@ -6,18 +6,12 @@
     },
 
 
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{name}",
+    "niri/workspaces": {
+        "format": "{value}",
         "format-icons": {
             "urgent": "",
             "active": "",
             "default": ""
-        },
-        "persistent-workspaces": {
-            "*": [ 1,2,3,4,5 ] // workspace 1 shown on DP-3
         }
     },
     "idle_inhibitor": {
@@ -28,11 +22,11 @@
         }
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format": "{icon}   {volume}%",
+        "format-bluetooth": "{icon}  {volume}%  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
+        "format-muted": "  {format_source}",
+        "format-source": "  {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
