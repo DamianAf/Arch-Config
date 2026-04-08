@@ -45,6 +45,7 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
+        "on-click": "foot nmtui"
     },
     "cpu": {
         "format": "  {usage}%",
@@ -61,10 +62,10 @@
         "format-critical": " {temperatureC}",
         "format": " {temperatureC}°C"
     },
-    "hyprland/language": {
+    "niri/language": {
        "format": "  {}",
        "format-en": "EN",
-       "format-ru": "RU"
+       "format-pt": "PT"
     },
     "battery": {
         "states": {

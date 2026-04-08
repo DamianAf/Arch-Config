@@ -10,6 +10,7 @@
     "modules-center": [
         "clock",
         "network",
+        "niri/language",
         "custom/arch",
         "niri/workspaces",
         "tray",
