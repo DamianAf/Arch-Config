@@ -20,10 +20,10 @@ input {
     touchpad {
         // off
         tap
-        // dwt
+        dwt
         // dwtp
         // drag false
-        // drag-lock
+        drag-lock
         natural-scroll
         accel-speed 0.2
         accel-profile "adaptive"
@@ -164,7 +164,7 @@ layout {
         on
 
         width 2
-        active-color "#8f87ff"
+        active-color "#8F3CFF"
         inactive-color "#595959aa"
 
         // Color of the border around windows that request your attention.
@@ -259,7 +259,7 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    slowdown 1.5
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -324,6 +324,8 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn-sh "is_mic_muted"; }
+    Shift+XF86AudioMicMute allow-when-locked=true { spawn-sh "is_mic_muted"; }
+    Ctrl+XF86AudioMicMute  allow-when-locked=true { spawn-sh "is_mic_muted"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
@@ -503,7 +505,7 @@ binds {
 
     // Expand the focused column to space not taken up by other fully visible columns.
     // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+F { spawn-sh "niri msg action expand-column-to-available-width && niri msg action reset-window-height"; }   
 
     Mod+C { center-column; }
 
