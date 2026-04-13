@@ -315,6 +315,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn "zen-browser"; }
     Super+A hotkey-overlay-title="Open a file explorer: thunar" { spawn "thunar"; }
+    Super+N hotkey-overlay-title="Open Calculator: custom calculator" {spawn "calculator"; }
     
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
