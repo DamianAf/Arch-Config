@@ -1,0 +1,4 @@
+[Plugins]
+kdeconnect_lockdeviceEnabled=true
+kdeconnect_remotecommandsEnabled=true
+kdeconnect_virtualmonitorEnabled=false

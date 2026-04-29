@@ -1,0 +1,2 @@
+[General]
+commands="@ByteArray({\"051f8cfc_e0c1_403e_b221_fd341a052ea9\":{\"command\":\"notify-send \\\"hello there\\\"\",\"name\":\"hello\"},\"3670bb4b_1881_49bf_9fe7_36f537ad7268\":{\"command\":\"shutdown 0\",\"name\":\"shutdown\"},\"8ce74799_07c8_4eb7_ae19_c1f0123dcc82\":{\"command\":\"qs -c noctalia-shell ipc call lockScreen lock\",\"name\":\"Lock Screen\"}})"
