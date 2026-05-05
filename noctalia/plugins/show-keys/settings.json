@@ -1,6 +1,6 @@
 {
   "captureEnabled": true,
-  "evtestDevice": "/dev/input/event5",
+  "evtestDevice": "/dev/input/event4",
   "position": "bottom",
   "marginPx": 60,
   "hideDelaySec": 1,

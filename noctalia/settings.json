@@ -32,7 +32,7 @@
         ],
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
-        "spectrumMirrored": true,
+        "spectrumMirrored": false,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -112,12 +112,12 @@
                 },
                 {
                     "clockColor": "none",
-                    "customFont": "",
+                    "customFont": "JetBrainsMono Nerd Font",
                     "formatHorizontal": "HH:mm ddd, MMM dd",
                     "formatVertical": "HH mm - dd MM",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": false
+                    "useCustomFont": true
                 },
                 {
                     "compactMode": false,
@@ -145,7 +145,7 @@
                     "colorizeIcons": false,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 145,
+                    "maxWidth": 160,
                     "scrollingMode": "hover",
                     "showIcon": true,
                     "showText": true,
@@ -171,6 +171,11 @@
             ],
             "right": [
                 {
+                    "defaultSettings": {
+                    },
+                    "id": "plugin:kde-connect"
+                },
+                {
                     "blacklist": [
                     ],
                     "chevronColor": "none",
@@ -179,6 +184,7 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "steam"
                     ]
                 },
                 {
@@ -211,6 +217,20 @@
                     "iconColor": "none",
                     "id": "Brightness",
                     "textColor": "none"
+                },
+                {
+                    "defaultSettings": {
+                        "debug": false,
+                        "rogcc": {
+                            "listenToNotifications": false
+                        },
+                        "supergfxctl": {
+                            "patchPending": true,
+                            "polling": false,
+                            "pollingInterval": 3000
+                        }
+                    },
+                    "id": "plugin:noctalia-supergfxctl"
                 },
                 {
                     "colorizeDistroLogo": false,
@@ -411,13 +431,13 @@
         },
         "language": "",
         "lockOnSuspend": true,
-        "lockScreenAnimations": false,
+        "lockScreenAnimations": true,
         "lockScreenBlur": 0,
         "lockScreenCountdownDuration": 10000,
         "lockScreenMonitors": [
         ],
         "lockScreenTint": 0,
-        "passwordChars": false,
+        "passwordChars": true,
         "radiusRatio": 1,
         "reverseScroll": false,
         "scaleRatio": 1,
@@ -446,7 +466,7 @@
     },
     "idle": {
         "customCommands": "[]",
-        "enabled": false,
+        "enabled": true,
         "fadeDuration": 5,
         "lockCommand": "",
         "lockTimeout": 660,
@@ -464,7 +484,7 @@
         "firstDayOfWeek": -1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
-        "name": "Chisinau",
+        "name": "Lisbon",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
         "showWeekNumberInCalendar": false,
@@ -487,11 +507,11 @@
     "nightLight": {
         "autoSchedule": true,
         "dayTemp": "6500",
-        "enabled": false,
+        "enabled": true,
         "forced": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "nightTemp": "4000"
+        "nightTemp": "4013"
     },
     "noctaliaPerformance": {
         "disableDesktopWidgets": true,
@@ -521,12 +541,12 @@
         },
         "sounds": {
             "criticalSoundFile": "",
-            "enabled": false,
+            "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
             "lowSoundFile": "",
             "normalSoundFile": "",
             "separateSounds": false,
-            "volume": 0.5
+            "volume": 0.2
         }
     },
     "osd": {
@@ -535,8 +555,8 @@
         "enabled": true,
         "enabledTypes": [
             0,
-            1,
-            2
+            2,
+            1
         ],
         "location": "top_right",
         "monitors": [
@@ -649,10 +669,10 @@
         "fontDefaultScale": 1,
         "fontFixed": "monospace",
         "fontFixedScale": 1,
-        "panelBackgroundOpacity": 0.93,
+        "panelBackgroundOpacity": 0.85,
         "panelsAttachedToBar": true,
-        "scrollbarAlwaysVisible": true,
-        "settingsPanelMode": "attached",
+        "scrollbarAlwaysVisible": false,
+        "settingsPanelMode": "centered",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
         "translucentWidgets": false
