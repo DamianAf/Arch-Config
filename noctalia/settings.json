@@ -219,20 +219,6 @@
                     "textColor": "none"
                 },
                 {
-                    "defaultSettings": {
-                        "debug": false,
-                        "rogcc": {
-                            "listenToNotifications": false
-                        },
-                        "supergfxctl": {
-                            "patchPending": true,
-                            "polling": false,
-                            "pollingInterval": 3000
-                        }
-                    },
-                    "id": "plugin:noctalia-supergfxctl"
-                },
-                {
                     "colorizeDistroLogo": false,
                     "colorizeSystemIcon": "primary",
                     "colorizeSystemText": "none",
@@ -481,7 +467,7 @@
     "location": {
         "analogClockInCalendar": false,
         "autoLocate": false,
-        "firstDayOfWeek": -1,
+        "firstDayOfWeek": 1,
         "hideWeatherCityName": false,
         "hideWeatherTimezone": false,
         "name": "Lisbon",
@@ -500,7 +486,7 @@
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 60000,
         "bluetoothRssiPollingEnabled": false,
-        "disableDiscoverability": false,
+        "disableDiscoverability": true,
         "networkPanelView": "wifi",
         "wifiDetailsViewMode": "grid"
     },
@@ -660,6 +646,14 @@
     },
     "templates": {
         "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "gtk"
+            }
         ],
         "enableUserTheming": false
     },

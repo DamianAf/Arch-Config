@@ -238,7 +238,7 @@ layout {
 spawn-at-startup "changeHz"
 // spawn-at-startup "awww-daemon"
 // spawn-at-startup "awww" "&&" "img" "~/.config/niri/wallpaper/arch_wallpaper.jpg"
-spawn-sh-at-startup "qs -c noctalia-shell" 
+spawn-sh-at-startup "QT_QPA_PLATFORMTHEME=gtk3 qs -c noctalia-shell" 
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -321,7 +321,7 @@ binds {
     // Mod+R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Super+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn "zen-browser"; }
-    Super+A hotkey-overlay-title="Open a file explorer: thunar" { spawn "thunar"; }
+    Super+A hotkey-overlay-title="Open a file explorer: thunar" { spawn "nautilus"; }
     Super+N hotkey-overlay-title="Open Calculator: custom calculator" {spawn "calculator"; }
     
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -331,9 +331,9 @@ binds {
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn-sh "is_mic_muted"; }
-    Shift+XF86AudioMicMute allow-when-locked=true { spawn-sh "is_mic_muted"; }
-    Ctrl+XF86AudioMicMute  allow-when-locked=true { spawn-sh "is_mic_muted"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Shift+XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    Ctrl+XF86AudioMicMute  allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Example media keys mapping using playerctl.
     // This will work with any MPRIS-enabled media player.
